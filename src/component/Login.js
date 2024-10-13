@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import { Header } from "./Header";
 import { FORM_TYPE } from "../constant/constatnt";
 import { checkValidate } from "./utills.js/validate";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./utills.js/firebase";
 
 export const Login = () => {
   const [formType, setFormType] = useState(FORM_TYPE.SIGNIN);
@@ -15,8 +17,40 @@ export const Login = () => {
       password?.current?.value,
       name?.current?.value
     );
-    setError(errorMessage)
+    setError(errorMessage);
     if (errorMessage) return;
+
+    // sign-in/sign-up -logic
+    if (formType != FORM_TYPE.SIGNIN) {
+      createUserWithEmailAndPassword(
+        auth,
+        email?.current?.value,
+        password?.current?.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+        });
+    } else {
+      signInWithEmailAndPassword(auth,email?.current?.value, password?.current?.value)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log("user=>",user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setError(errorMessage);
+        });
+    }
   };
 
   return (
@@ -31,7 +65,9 @@ export const Login = () => {
         className="absolute w-3/12 mx-auto my-36 left-0 right-0 bg-black text-white p-8 bg-opacity-80"
         onSubmit={(e) => e.preventDefault()}
       >
-        <h1 className="font-bold text-3xl py-4">SIGN IN</h1>
+        <h1 className="font-bold text-3xl py-4">
+          {formType == FORM_TYPE.SIGNIN ? "Sign In" : "Sign Up"}
+        </h1>
         {formType === FORM_TYPE.SIGNUP && (
           <input
             type="text"
@@ -62,7 +98,10 @@ export const Login = () => {
             {FORM_TYPE.SIGNIN}
           </button>
         ) : (
-          <button className="p-4 my-6 bg-red-700 w-full rounded-lg" onClick={handleSubmit}>
+          <button
+            className="p-4 my-6 bg-red-700 w-full rounded-lg"
+            onClick={handleSubmit}
+          >
             {FORM_TYPE.SIGNUP}
           </button>
         )}
