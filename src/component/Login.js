@@ -1,13 +1,22 @@
 import { useRef, useState } from "react";
 import { Header } from "./Header";
-import { FORM_TYPE } from "../constant/constatnt";
+import { FORM_TYPE, PHOTO_URL, USER_AVATAR } from "../constant/constatnt";
 import { checkValidate } from "./utills.js/validate";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 import { auth } from "./utills.js/firebase";
+import { addUser } from "./utills.js/userSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 
 export const Login = () => {
   const [formType, setFormType] = useState(FORM_TYPE.SIGNIN);
   const [error, setError] = useState();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const email = useRef(null);
   const name = useRef(null);
   const password = useRef(null);
@@ -30,19 +39,40 @@ export const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          // ...
+          updateProfile(user, {
+            displayName: name?.current?.value,
+            photoURL: PHOTO_URL,
+          });
         })
+        .then(() => {
+          const { uid, email, displayName, photoURL } = auth.currentUser;
+          dispatch(
+            addUser({
+              uid: uid,
+              email: email,
+              displayName: displayName,
+              photoURL: photoURL,
+            })
+          );
+          navigate('/browse')
+        }
+      )
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          setError(errorMessage);
           // ..
         });
     } else {
-      signInWithEmailAndPassword(auth,email?.current?.value, password?.current?.value)
+      signInWithEmailAndPassword(
+        auth,
+        email?.current?.value,
+        password?.current?.value
+      )
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log("user=>",user);
+          navigate('/browse')
           // ...
         })
         .catch((error) => {
@@ -84,7 +114,7 @@ export const Login = () => {
         ></input>
         <input
           type="password"
-          placeholder="PassWord"
+          placeholder="Password"
           className="p-4 my-4 w-full bg-gray-700"
           ref={password}
         ></input>
