@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Header } from "./Header";
-import { FORM_TYPE, PHOTO_URL, USER_AVATAR } from "../constant/constatnt";
+import { FORM_TYPE, PHOTO_URL, USER_AVATAR } from "../constant/constant";
 import { checkValidate } from "./utills.js/validate";
 import {
   createUserWithEmailAndPassword,
@@ -10,13 +10,11 @@ import {
 import { auth } from "./utills.js/firebase";
 import { addUser } from "./utills.js/userSlice";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
 
 export const Login = () => {
   const [formType, setFormType] = useState(FORM_TYPE.SIGNIN);
   const [error, setError] = useState();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const email = useRef(null);
   const name = useRef(null);
   const password = useRef(null);
@@ -54,7 +52,6 @@ export const Login = () => {
               photoURL: photoURL,
             })
           );
-          navigate('/browse')
         }
       )
         .catch((error) => {
@@ -72,7 +69,6 @@ export const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate('/browse')
           // ...
         })
         .catch((error) => {
