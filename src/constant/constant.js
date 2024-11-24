@@ -20,3 +20,6 @@ export const MOVIE_OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYWU3ODkwNjYxMTE1YmRhYzk3ODAwNjFjYTViZmU2YSIsIm5iZiI6MTcyOTQwNzAzNS43MzE1NjUsInN1YiI6IjY3MTRhMWZjMGNiNjI1MmY5OTA4OWVkMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IiD6i3kb-I64g9OhyhtIl6Y5jdgxbCONF0DdAFOGsRw",
   },
 };
+
+export const EMPTY_ARRAY = [];
+export const EMPTY_STRING = "";
