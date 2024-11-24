@@ -22,7 +22,7 @@ export const Header = () => {
   };
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoURL } = user;
         dispatch(
@@ -33,21 +33,18 @@ export const Header = () => {
             photoURL: photoURL,
           })
         );
-        navigate("/browse")
+        navigate("/browse");
       } else {
         dispatch(removeUser());
         navigate("/");
       }
     });
+    return () => unsubscribe();
   }, [auth]);
 
   return (
     <div className="absolute bg-gradient-to-b from-black z-10 w-screen flex justify-between">
-      <img
-        src={LOGO}
-        alt="L_O-G_O"
-        className="w-48 h-24"
-      />
+      <img src={LOGO} alt="L_O-G_O" className="w-48 h-24" />
       {user && (
         <div className="flex gap-2 items-center">
           <img
