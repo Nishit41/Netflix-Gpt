@@ -21,5 +21,6 @@ export const MOVIE_OPTIONS = {
   },
 };
 
+export const IMG_CDN = 'https://image.tmdb.org/t/p/w500/' 
 export const EMPTY_ARRAY = [];
 export const EMPTY_STRING = "";
