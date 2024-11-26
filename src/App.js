@@ -5,7 +5,7 @@ import appStore from "./component/utills.js/appStore";
 function App() {
   return (
     <Provider store={appStore}>
-    <div className="">
+    <div>
       <Body/>       
     </div>
     </Provider>

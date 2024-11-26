@@ -1,7 +1,19 @@
-@tailwind base; 
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+::-webkit-scrollbar {
+    width: 14px; /* Width for vertical scrollbar */
+    height: 14px; /* Height for horizontal scrollbar */
+  }
 
-
+  ::-webkit-scrollbar-thumb {
+    background-color: #9ca3af; /* Gray color for the scrollbar thumb */
+    border-radius: 8px; /* Rounded corners for the thumb */
+  }

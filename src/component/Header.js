@@ -43,7 +43,7 @@ export const Header = () => {
   }, [auth]);
 
   return (
-    <div className="absolute bg-gradient-to-b from-black z-10 w-screen flex justify-between">
+    <div className="absolute bg-gradient-to-b from-black z-10 w-full flex justify-between">
       <img src={LOGO} alt="L_O-G_O" className="w-48 h-24" />
       {user && (
         <div className="flex gap-2 items-center">

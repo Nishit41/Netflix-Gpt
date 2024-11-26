@@ -7,11 +7,13 @@ export const Browse = () => {
   useNowPlayingMovies();
 
   return (
-    <div>
+    <div className="w-full">
       <Header />
       {/* Display the movies here */}
       <MainContainer/>
-      <SecondaryContainer/>
+      <div className="w-full">
+      <SecondaryContainer/> 
+      </div> 
     </div>
   );
 };
