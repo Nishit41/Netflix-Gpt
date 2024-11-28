@@ -21,6 +21,19 @@ export const MOVIE_OPTIONS = {
   },
 };
 
-export const IMG_CDN = 'https://image.tmdb.org/t/p/w500/' 
+export const IMG_CDN = "https://image.tmdb.org/t/p/w500/";
 export const EMPTY_ARRAY = [];
 export const EMPTY_STRING = "";
+
+export const LANGUAGE_PLACEHOLDER = {
+  English: {
+    searchText: "Search",
+    placeholder: "What Would You Like To Watch Today",
+  },
+  Hindi: { searchText: "खोज", placeholder: "आज आप क्या देखना चाहेंगे" },
+  German: {
+    searchText: "buscar",
+    placeholder: "Was möchtest du heute sehen?",
+  },
+  Spanish: { searchText: "suchen", placeholder: "¿Qué te gustaría ver hoy?" },
+};
