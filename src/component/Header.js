@@ -62,7 +62,7 @@ export const Header = () => {
           >
             GPT Search
           </button>
-          <select
+        <select
             className="w-24 p-2 rounded-md border-none bg-black text-white hover:border-none"
             onChange={handleLanguageChange}
           >
