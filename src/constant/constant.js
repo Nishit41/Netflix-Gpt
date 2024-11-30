@@ -37,3 +37,6 @@ export const LANGUAGE_PLACEHOLDER = {
   },
   Spanish: { searchText: "suchen", placeholder: "¿Qué te gustaría ver hoy?" },
 };
+
+export const GEMINI_API_KEY = "AIzaSyBLxAtsTjHDmNa5m38qkqQtlU8CP6GbLgE";
+
