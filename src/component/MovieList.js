@@ -1,7 +1,6 @@
 import { MovieCard } from "./MovieCard";
 
 export const MovieList = ({ title, movies }) => {
-  console.log(movies , title);
   return (
     <div>
       <div>
