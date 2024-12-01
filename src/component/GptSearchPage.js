@@ -1,5 +1,12 @@
-import { GptSearchBar } from "./GptSearchBar"
+import { GptMovieSuggestion } from "./GptMovieSuggestion";
+import { GptSearchBar } from "./GptSearchBar";
 
 export const GptSearchPage = () => {
- return <GptSearchBar/> 
-}
+  return (
+    <>
+      {" "}
+      <GptSearchBar />
+      <GptMovieSuggestion />
+    </>
+  );
+};

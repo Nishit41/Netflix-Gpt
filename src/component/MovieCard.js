@@ -1,6 +1,7 @@
 import { IMG_CDN } from "../constant/constant";
 
 export const MovieCard = ({ posterPath }) => {
+  if (!posterPath) return;
   return (
     <div className="m-2 py-4 w-72">
       <img
