@@ -1,14 +1,14 @@
 import { useRef, useState } from "react";
 import { Header } from "./Header";
 import { FORM_TYPE, PHOTO_URL, USER_AVATAR } from "../constant/constant";
-import { checkValidate } from "./utills.js/validate";
+import { checkValidate } from "./utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "./utills.js/firebase";
-import { addUser } from "./utills.js/userSlice";
+import { auth } from "./utils/firebase";
+import { addUser } from "./utils/userSlice";
 import { useDispatch } from "react-redux";
 
 export const Login = () => {
@@ -52,8 +52,7 @@ export const Login = () => {
               photoURL: photoURL,
             })
           );
-        }
-      )
+        })
         .catch((error) => {
           const errorMessage = error.message;
           setError(errorMessage);

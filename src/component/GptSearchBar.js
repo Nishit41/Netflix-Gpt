@@ -1,14 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  EMPTY_ARRAY,
   GEMINI_API_KEY,
   LANGUAGE_PLACEHOLDER,
 } from "../constant/constant";
 import { useRef } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { fetchMovie } from "../hooks/useFetchMovies";
+import { filteredMovies } from "./utils/movieSlice";
+
 
 export const GptSearchBar = () => {
+  const dispatch = useDispatch();
   const { lang } = useSelector((store) => store.config);
   const searchText = useRef(null);
   const handleSearch = async () => {
@@ -24,6 +26,7 @@ export const GptSearchBar = () => {
       .split(",")
       .map((movie) => fetchMovie(movie));
     const searchedMovies = await Promise.all(gptMovies);
+    dispatch(filteredMovies(searchedMovies))
   };
   return (
     <div className="pt-[15%] flex justify-center">

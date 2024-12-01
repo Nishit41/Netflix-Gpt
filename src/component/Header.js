@@ -1,13 +1,13 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { LOGO } from "../constant/constant";
-import { auth } from "./utills.js/firebase";
+import { auth } from "./utils/firebase";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser } from "./utills.js/userSlice";
+import { addUser, removeUser } from "./utils/userSlice";
 import { useEffect } from "react";
 import { toggleGptSearchView } from "./gptSlice";
 import { LANGUAGE_OPTIONS } from "../constant/language-constant";
-import { changeLanguage } from "./utills.js/configSlice";
+import { changeLanguage } from "./utils/configSlice";
 
 export const Header = () => {
   const navigate = useNavigate();
