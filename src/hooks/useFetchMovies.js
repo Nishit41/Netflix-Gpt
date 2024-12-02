@@ -1,4 +1,4 @@
-import { MOVIE_OPTIONS } from "../constant/constant";
+import { MOVIE_OPTIONS } from "../constants/constant";
 
 export const fetchMovie = async (movie) => {
   const data = await fetch(

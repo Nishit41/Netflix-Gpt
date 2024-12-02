@@ -5,11 +5,8 @@ export const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
   
   return (
-    <div className="bg-black">
-      <MovieList movies={movies?.nowPlayingMovies} title={movies?.nowPlayingMovies?.original_title}/> 
-      <MovieList movies={movies?.nowPlayingMovies} title={movies?.nowPlayingMovies?.original_title}/>
-      <MovieList movies={movies?.nowPlayingMovies} title={movies?.nowPlayingMovies?.original_title}/>
-      <MovieList movies={movies?.nowPlayingMovies} title={movies?.nowPlayingMovies?.original_title}/>
+    <div className="bg-black text-white pt-2 -mt-96">
+      <MovieList movies={movies?.nowPlayingMovies} title={"Now Playing Movies"}/> 
     </div>
   );
 };
