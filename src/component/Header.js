@@ -1,12 +1,12 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { LOGO } from "../constant/constant";
+import { LOGO } from "../constants/constant";
 import { auth } from "./utils/firebase";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "./utils/userSlice";
 import { useEffect } from "react";
 import { toggleGptSearchView } from "./gptSlice";
-import { LANGUAGE_OPTIONS } from "../constant/language-constant";
+import { LANGUAGE_OPTIONS } from "../constants/language-constant";
 import { changeLanguage } from "./utils/configSlice";
 
 export const Header = () => {
@@ -52,8 +52,8 @@ export const Header = () => {
   };
 
   return (
-    <div className="absolute bg-gradient-to-b from-black z-10 w-full flex justify-between">
-      <img src={LOGO} alt="L_O-G_O" className="w-48 h-24" />
+    <div className="absolute bg-gradient-to-b from-black z-10 w-full flex flex-col md:flex-row justify-between">
+      <img src={LOGO} alt="L_O-G_O" className="w-48 h-24 mx-auto md:mx-0" />
       {user && (
         <div className="flex gap-2 items-center">
           <button

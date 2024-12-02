@@ -10,7 +10,7 @@ export const Browse = () => {
   useNowPlayingMovies();
 
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       <Header />
       {showGptSearch ? (
         <GptSearchPage />

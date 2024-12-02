@@ -1,4 +1,4 @@
-import { IMG_CDN } from "../constant/constant";
+import { IMG_CDN } from "../constants/constant";
 
 export const MovieCard = ({ posterPath }) => {
   if (!posterPath) return;

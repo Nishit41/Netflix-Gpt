@@ -1,24 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  GEMINI_API_KEY,
-  LANGUAGE_PLACEHOLDER,
-} from "../constant/constant";
-import { useRef } from "react";
+import { LANGUAGE_PLACEHOLDER } from "../constants/constant";
+import { useRef, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { fetchMovie } from "../hooks/useFetchMovies";
 import { filteredMovies } from "./utils/movieSlice";
 
-
 export const GptSearchBar = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const { lang } = useSelector((store) => store.config);
   const searchText = useRef(null);
+
   const handleSearch = async () => {
+    if (!searchText?.current?.value) return;
+    setIsLoading(true);
     const gptQuery =
       "Act as a Movie Recommendation system and suggest some movies for the query : " +
       searchText.current.value +
       ". only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
-    const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+    const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_AI_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const result = await model.generateContent(gptQuery);
     const gptMovies = result?.response
@@ -26,12 +26,13 @@ export const GptSearchBar = () => {
       .split(",")
       .map((movie) => fetchMovie(movie));
     const searchedMovies = await Promise.all(gptMovies);
-    dispatch(filteredMovies(searchedMovies))
+    setIsLoading(false);
+    dispatch(filteredMovies(searchedMovies));
   };
   return (
-    <div className="pt-[15%] flex justify-center">
+    <div className="pt-72 md:pt-[15%] flex justify-center">
       <form
-        className="w-1/3 bg-black grid grid-cols-12"
+        className="w-72 md:w-1/3 bg-black grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
@@ -44,7 +45,11 @@ export const GptSearchBar = () => {
           className="py-1 px-4 bg-red-900 text-white rounded-md col-span-3"
           onClick={handleSearch}
         >
-          {LANGUAGE_PLACEHOLDER?.[lang]?.searchText}
+          {isLoading ? (
+            <div className="m-auto border-dotted border-4 border-white rounded-full w-12 h-12 animate-spin"></div>
+          ) : (
+            LANGUAGE_PLACEHOLDER?.[lang]?.searchText
+          )}
         </button>
       </form>
     </div>

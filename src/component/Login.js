@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Header } from "./Header";
-import { FORM_TYPE, PHOTO_URL, USER_AVATAR } from "../constant/constant";
+import { FORM_TYPE, PHOTO_URL, USER_AVATAR } from "../constants/constant";
 import { checkValidate } from "./utils/validate";
 import {
   createUserWithEmailAndPassword,
