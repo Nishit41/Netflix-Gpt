@@ -52,17 +52,17 @@ export const Header = () => {
   };
 
   return (
-    <div className="absolute bg-gradient-to-b from-black z-10 w-full flex flex-col md:flex-row justify-between">
+    <div className="md:absolute bg-gradient-to-b from-black z-10 w-full flex flex-col md:flex-row justify-between pb-2">
       <img src={LOGO} alt="L_O-G_O" className="w-48 h-24 mx-auto md:mx-0" />
       {user && (
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center sm: justify-between flex-wrap">
           <button
             className="text-white bg-purple-800 p-2 rounded-md"
             onClick={handleGptSearch}
           >
             GPT Search
           </button>
-        <select
+          <select
             className="w-24 p-2 rounded-md border-none bg-black text-white hover:border-none"
             onChange={handleLanguageChange}
           >
