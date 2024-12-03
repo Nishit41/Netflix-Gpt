@@ -3,8 +3,7 @@ import { GptSearchBar } from "./GptSearchBar";
 
 export const GptSearchPage = () => {
   return (
-    <div className="bg-gray-300">
-      {" "}
+    <div className="bg-gray-200">
       <GptSearchBar />
       <GptMovieSuggestion />
     </div>
