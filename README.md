@@ -1,5 +1,5 @@
 # live link 
-https://gpt-app-seven-sigma.vercel.app/
+https://gptmovieapp.vercel.app/
 
 # Getting Started with Create React App
 
