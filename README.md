@@ -1,5 +1,5 @@
 # live link 
-https://netflix-gpt-cf025.firebaseapp.com/
+https://gpt-app-seven-sigma.vercel.app/
 
 # Getting Started with Create React App
 
