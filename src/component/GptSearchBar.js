@@ -30,7 +30,7 @@ export const GptSearchBar = () => {
     dispatch(filteredMovies(searchedMovies));
   };
   return (
-    <div className="pt-72 md:pt-[15%] flex justify-center">
+    <div className="pt-16 md:pt-[15%] flex justify-center">
       <form
         className="w-72 md:w-1/3 bg-black grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}

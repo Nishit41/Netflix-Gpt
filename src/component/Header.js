@@ -43,7 +43,7 @@ export const Header = () => {
       }
     });
     return () => unsubscribe();
-  }, [auth]);
+  }, [auth,dispatch,navigate]);
   const handleGptSearch = () => {
     dispatch(toggleGptSearchView());
   };
