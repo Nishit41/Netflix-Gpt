@@ -86,7 +86,7 @@ export const Login = () => {
         className="w-full h-full absolute"
       ></img>
       <form
-        className="absolute w-3/12 mx-auto my-36 left-0 right-0 bg-black text-white p-8 bg-opacity-80"
+        className="absolute md:w-3/12 w-96 mx-auto my-14 left-0 right-0 bg-black text-white p-8 bg-opacity-80"
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="font-bold text-3xl py-4">
