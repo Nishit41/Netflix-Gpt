@@ -70,13 +70,13 @@ export const Header = () => {
               <option key={lang?.identifier}>{lang?.name}</option>
             ))}
           </select>
-          <img
+          {/* TODO  <img
             className="hidden md:block w-12 h-12"
             alt="usericon"
             src={user.photoURL}
-          />
-          <button onClick={handleSignOut} className="font-bold text-white ">
-            (Sign Out)
+          /> */}
+          <button onClick={handleSignOut} className="font-bold text-white bg-slate-800 px-4 py-2 rounded-md">
+            Sign Out
           </button>
         </div>
       )}
