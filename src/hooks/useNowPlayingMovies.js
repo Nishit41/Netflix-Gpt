@@ -14,5 +14,10 @@ export const useNowPlayingMovies = () => {
     const json = await data.json();
     dispatch(addNowPlayingMovies(json?.results));
   };
-  useEffect(() => !nowPlayingMovies && getNowPlayingMovies, EMPTY_ARRAY);
+  useEffect(() => {
+    if (!nowPlayingMovies) {
+      getNowPlayingMovies();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nowPlayingMovies, dispatch]);
 };
