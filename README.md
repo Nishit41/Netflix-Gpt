@@ -1,5 +1,5 @@
 # live link 
-https://netflix-47r9pi61x-nishits-projects-6f6dfa37.vercel.app/browse
+https://gpt-alpha-bice.vercel.app/browse
 
 # Getting Started with Create React App
 
