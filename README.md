@@ -5,12 +5,6 @@ Netflix GPT is a movie app built with React, TailwindCSS, Firebase, Redux, and O
 # live link 
 https://gpt-alpha-bice.vercel.app/browse
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-
-
 ## Features 🚀  
 - **Authentication**:  
   - Login/Sign Up with form validation using Firebase.  
