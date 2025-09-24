@@ -1,10 +1,6 @@
 # # Netflix GPT 🎬🤖  
 Netflix GPT is a movie app built with React, TailwindCSS, Firebase, Redux, and OpenAI's GPT, designed to provide personalized movie suggestions.  
 
-
-# live link 
-https://gpt-alpha-bice.vercel.app/browse
-
 ## Features 🚀  
 - **Authentication**:  
   - Login/Sign Up with form validation using Firebase.  
